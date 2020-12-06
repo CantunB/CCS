@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Grupos;
+use App\Cliente_grupos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -26,7 +28,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('Clientes.create');
+        $grupos = Grupos::all();
+        return view('Clientes.create', compact('grupos'));
     }
 
     /**
@@ -38,6 +41,12 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $clientes = Cliente::create($request->all());
+
+        $cliente_grupo = new Cliente_grupos;
+        $cliente_grupo->cliente_id = $clientes->id;
+        $cliente_grupo->grupo_id = $request->grupo_id;
+        $cliente_grupo->save();
+
         return Redirect::to('clientes')->with('success', 'Cliente registrado');
     }
 

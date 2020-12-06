@@ -16,4 +16,18 @@ class Cliente extends Model
         'aval',
         'direccion_aval'
     ];
+
+    public function scopeNombre($query, $nombre)
+    {
+        if ($nombre)
+
+            return $query->where('nombre','LIKE',"%$nombre%");
+    }
+
+    public function scopeTarjeta($query, $tarjeta)
+    {
+        if ($tarjeta)
+            return $query->where('tarjeta','LIKE',"%$tarjeta%");
+    }
+
 }

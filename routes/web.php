@@ -24,3 +24,5 @@ Route::resource('grupos', 'GruposController');
 Route::resource('clientes', 'ClienteController');
 Route::resource('pagos', 'PagosController');
 Route::resource('bitacora', 'BitacoraController');
+Route::resource('semanas', 'SemanasController');
+Route::resource('usuarios', 'UserController');

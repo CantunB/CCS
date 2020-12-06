@@ -17,7 +17,6 @@ class CreatePagosTable extends Migration
             $table->id();
             $table->string('prestamo');
             $table->string('pago');
-            $table->string('mora');
             $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });

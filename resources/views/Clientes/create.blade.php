@@ -47,6 +47,19 @@
                   Looks good!
                 </div>
               </div>
+              <div class="col-md-4 mb-3">
+                <label for="direccion_aval">Grupos</label>
+                <select name="grupo_id" class="form-control">
+                    <option value="">Selecciona un grupo
+                        @foreach ($grupos as $item)
+                        <option value="{{ $item->id }}">{{ $item->numero }} </option>
+                        @endforeach
+                    </option>
+                </select>
+                <div class="valid-tooltip">
+                  Looks good!
+                </div>
+              </div>
         </div>
         <button class="btn btn-primary" type="submit">Guardar</button>
       </form>

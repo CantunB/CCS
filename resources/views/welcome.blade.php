@@ -81,11 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Grupo CCS
                 </div>
 
                 <div class="links">
-                    <h1>TE AMO MI AMOR</h1>
+                    <h1></h1>
                 </div>
             </div>
         </div>

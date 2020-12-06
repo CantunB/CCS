@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente_grupos;
 use App\Grupos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -15,8 +16,10 @@ class GruposController extends Controller
      */
     public function index()
     {
-        $grupos = Grupos::all();
-        return view('Grupos.index', compact('grupos'));
+//        $grupos = Grupos::all();
+        $grupos = Cliente_grupos::select('grupo_id')->groupBy(['grupo_id'])->get();
+        $clientes_grupos = Cliente_grupos::orderBy('grupo_id','ASC')->get();
+        return view('Grupos.index', compact('grupos','clientes_grupos'));
     }
 
     /**
